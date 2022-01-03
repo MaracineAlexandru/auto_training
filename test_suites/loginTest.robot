@@ -16,15 +16,15 @@ ${scrollingPixels}         250
 *** Test Cases ***
 Basic functionality test 
     Open Emag 
-    # Accept cookies
-    # Navigate through pages
-    # Execute JavaScript    window.scrollTo(0, ${scrollingPixels})
-    # Wait Until Keyword Succeeds    2x    2s   Sorting changes From Popular to Latest      
-    # ${firstItemName} =  Get Text    ${firstElementInList} 
-    # Click Element    ${addToCartButton} 
-    # Wait Until Element Is Visible    ${cartIsNotEmpty} 
-    # Search by    ${cartButton}
-    # ${nameOfItemInCart} =  Get Text  ${firstElementInCart}
-    # Should Be Equal    ${firstItemName}    ${nameOfItemInCart} 
-    # [Teardown]    Close Browser
+    Accept cookies
+    Navigate through pages
+    Execute JavaScript    window.scrollTo(0, ${scrollingPixels})
+    Wait Until Keyword Succeeds    2x    2s   Sorting changes From Popular to Latest      
+    ${firstItemName} =  Get Text    ${firstElementInList} 
+    Click Element    ${addToCartButton} 
+    Wait Until Element Is Visible    ${cartIsNotEmpty} 
+    Search by    ${cartButton}
+    ${nameOfItemInCart} =  Get Text  ${firstElementInCart}
+    Should Be Equal    ${firstItemName}    ${nameOfItemInCart} 
+    [Teardown]    Close Browser
 
