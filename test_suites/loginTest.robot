@@ -24,7 +24,7 @@ Basic functionality test
     Select sort by latest products
     Execute JavaScript    window.scrollTo(0, ${scrollingPixels})
     Wait Until Keyword Succeeds    2x    2s   Verify sorting changes From Popular to Latest  
-    Get first product in list and add it to the shopping cart    
-    Verify the correct product is in the shopping cart   
+    ${firstProduct}=  Get first product in list and add it to the shopping cart    
+    Verify the correct product is in the shopping cart   ${firstProduct}
     [Teardown]    Close Browser
 

@@ -6,7 +6,7 @@ Library    Collections
 ${emagUrl}                 https://www.emag.ro/
 ${browser}                 chrome 
 ${acceptCookiesBtn}        css:body > div.gdpr-cookie-banner.js-gdpr-cookie-banner.pad-sep-xs.pad-hrz-none.show > div > div.col-xs-12.col-sm-5.col-md-4.col-lg-3.cookie-banner-buttons > button.btn.btn-primary.js-accept.gtm_h76e8zjgoo.btn-block
-${productsTab}             css:auxiliary > div > div > ul:nth-child(1) > li > div
+${productsTab}             css:#auxiliary > div > div > ul:nth-child(1) > li > div
 ${productGamingDropdown}   css:body > div.main-container-outer > div.megamenu-container.megamenu-always-open > div > div.megamenu-list-container > ul > li:nth-child(6) > a
 
 *** Keywords ***
@@ -21,6 +21,4 @@ Accept cookies
  Select product tab
     Wait Until Page Contains Element    ${productsTab} 
     Click Element    ${productsTab}  
-Select gaming from the products dropdown
-    Wait Until Page Contains Element    ${productGamingDropdown} 
-    Click Element    ${productGamingDropdown}    
+  

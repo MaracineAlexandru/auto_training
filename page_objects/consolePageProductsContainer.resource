@@ -3,12 +3,8 @@ Library    SeleniumLibrary
 Library    Collections
 
 *** Variables ***
-${productsTab}             css:auxiliary > div > div > ul:nth-child(1) > li > div
 ${topElementInSorting}     css:#main-container > section.page-section.page-listing-v2 > div > div.clearfix.pad-btm-md > div.page-container > div.listing-panel.has-floating-listing-panel-footer > div.listing-panel-footer.js-head-sort-options > div > div:nth-child(2) > div.sort-control-btn-dropdown.hidden-xs > button > span.sort-control-btn-option.text-truncate 
 ${sortingByNewestText}     Cele mai noi
-${productGamingDropdown}   css:body > div.main-container-outer > div.megamenu-container.megamenu-always-open > div > div.megamenu-list-container > ul > li:nth-child(6) > a
-${playstationButton}       css:#emg-body-overlay > div.main-container-inner > div.emg-container > div > div.emg-clear.main-page-container > aside > ul > li:nth-child(2) > a
-${consoleButton}                 css:#emg-body-overlay > div.main-container-inner > div.emg-container > div > div.emg-clear.main-page-container > aside > ul:nth-child(2) > li:nth-child(2) > a
 ${sortButton}              css:#main-container > section.page-section.page-listing-v2 > div > div.clearfix.pad-btm-md > div.page-container > div.listing-panel.has-floating-listing-panel-footer > div.listing-panel-footer.js-head-sort-options > div > div:nth-child(2) > div.sort-control-btn-dropdown.hidden-xs > button > span.sort-control-btn-option.text-truncate
 ${sortByLatestLabel}            css:#main-container > section.page-section.page-listing-v2 > div > div.clearfix.pad-btm-md > div.page-container > div.listing-panel.has-floating-listing-panel-footer > div.listing-panel-footer.js-head-sort-options > div > div:nth-child(2) > div.sort-control-btn-dropdown.hidden-xs.active > div > ul > li:nth-child(2) > a
 ${addToCartButton}         css:#card_grid > div:nth-child(1) > div > div > div.card-v2-content > div.card-v2-atc.mrg-top-xxs > form > button
@@ -26,9 +22,11 @@ Verify sorting changes From Popular to Latest
 Get first product in list and add it to the shopping cart  
     Click Element    ${addToCartButton}    
     ${firstItemName} =  Get Text    ${firstElementInList} 
+   [Return]  ${firstItemName}
 
 Verify the correct product is in the shopping cart
+    [Arguments]  ${firstProduct}
     Wait Until Element Is Visible    ${cartIsNotEmpty} 
     Click Element    ${cartButton}
     ${nameOfItemInCart} =  Get Text  ${firstElementInCart}
-    Should Be Equal    ${firstItemName}    ${nameOfItemInCart}     
+    Should Be Equal    ${firstProduct}    ${nameOfItemInCart}     
