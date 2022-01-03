@@ -1,30 +1,30 @@
 *** Settings ***
-Resource     ../page_objects/loginPage.resource
+Resource     ../page_objects/consolePageProductsContainer.resource
 Resource     ../page_objects/emagHomePage.resource
+Resource     ../page_objects/emagProductsView.resource
+Resource     ../page_objects/emagGamingPage.resource
+Resource     ../page_objects/emagPlaystationPage.resource
+Resource     ../page_objects/consolePageListingPanelView.resource
 Library     ../python_lib/custom_keywords.py
 Library    SeleniumLibrary
 Library    Process
 
 *** Variables ***
-${addToCartButton}         css:#card_grid > div:nth-child(1) > div > div > div.card-v2-content > div.card-v2-atc.mrg-top-xxs > form > button
-${cartButton}              css:body > div.ph-modal.modal.fade.product-purchased-modal.in > div > div > div.modal-body.modal-content-extra-padding.pad-sep-xs.hidden-xs > div > div.table-cell.col-xs-12.col-sm-2.col-md-2.hidden-xs.hidden-sm > a
-${cartIsNotEmpty}          css:body > div.ph-modal.modal.fade.product-purchased-modal.in > div > div
-${firstElementInList}      css:#card_grid > div:nth-child(1) > div > div > div.card-v2-info > div > a
-${firstElementInCart}      css:#vendorsContainer > div > div.cart-widget.cart-line > div > div.main-product-details-container.emg-right > div.line-item.line-item-main > div.main-product-title-container.emg-left > a
 ${scrollingPixels}         250
 
 *** Test Cases ***
 Basic functionality test 
     Open Emag 
     Accept cookies
-    Navigate through pages
+    Select product tab
+    Select gaming from the products dropdown
+    Select playstation button
+    Select console button
+    Select sorting dropdown
+    Select sort by latest products
     Execute JavaScript    window.scrollTo(0, ${scrollingPixels})
-    Wait Until Keyword Succeeds    2x    2s   Sorting changes From Popular to Latest      
-    ${firstItemName} =  Get Text    ${firstElementInList} 
-    Click Element    ${addToCartButton} 
-    Wait Until Element Is Visible    ${cartIsNotEmpty} 
-    Search by    ${cartButton}
-    ${nameOfItemInCart} =  Get Text  ${firstElementInCart}
-    Should Be Equal    ${firstItemName}    ${nameOfItemInCart} 
+    Wait Until Keyword Succeeds    2x    2s   Verify sorting changes From Popular to Latest  
+    Get first product in list and add it to the shopping cart    
+    Verify the correct product is in the shopping cart   
     [Teardown]    Close Browser
 
