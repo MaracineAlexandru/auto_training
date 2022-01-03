@@ -13,6 +13,7 @@ ${productGamingDropdown}   css:body > div.main-container-outer > div.megamenu-co
 
 Open Emag 
   Open Browser    url=${emagUrl}  browser=${browser}
+  Maximize Browser Window
 
 Accept cookies
     Wait Until Element Is Visible    ${acceptCookiesBtn}
