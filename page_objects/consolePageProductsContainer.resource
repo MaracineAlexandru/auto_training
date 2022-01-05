@@ -21,10 +21,3 @@ Get first product in list and add it to the shopping cart
     Click Element    ${addToCartButton}    
     ${firstItemName} =  Get Text    ${firstElementInList} 
    [Return]  ${firstItemName}
-
-Verify the correct product is in the shopping cart
-    [Arguments]  ${firstProduct}
-    Wait Until Element Is Visible    ${cartIsNotEmpty} 
-    Click Element    ${cartButton}
-    ${nameOfItemInCart} =  Get Text  ${firstElementInCart}
-    Should Be Equal    ${firstProduct}    ${nameOfItemInCart}     
