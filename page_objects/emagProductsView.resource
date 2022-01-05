@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 Library    Collections
 
 *** Variables ***
-${productGamingDropdown}   css:.megamenu-list li:nth-child(6)
+${productGamingDropdown}   //span[text()='Gaming, Carti & Birotica']
 *** Keywords ***
 Select gaming from the products dropdown
     Wait Until Page Contains Element    ${productGamingDropdown} 
