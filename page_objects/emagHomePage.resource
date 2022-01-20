@@ -3,16 +3,15 @@ Library    SeleniumLibrary
 Library    Collections
 
 *** Variables ***
-${emagUrl}                 https://www.emag.ro/
-${browser}                 chrome 
 ${acceptCookiesBtn}        css:.js-accept
 ${productsTab}             css:.navbar-aux-content__departments
 
 
 *** Keywords ***
 
-Open Emag 
-  Open Browser    url=${emagUrl}  browser=${browser}
+Open Site 
+  [Arguments]  ${url}  ${browser}
+  Open Browser    url=${url}  browser=${browser}
   Maximize Browser Window
 
 Accept cookies

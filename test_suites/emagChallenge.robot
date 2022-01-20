@@ -13,10 +13,12 @@ Library    Process
 
 *** Variables ***
 ${scrollingPixels}         250
+${emagUrl}                 https://www.emag.ro/
+${browser}                 chrome 
 
 *** Test Cases ***
 Basic functionality test 
-    Open Emag 
+    Open Site  ${emagUrl}  ${browser}
     Accept cookies
     Select product tab
     Select gaming from the products dropdown
