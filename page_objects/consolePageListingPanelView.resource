@@ -3,14 +3,15 @@ Library    SeleniumLibrary
 Library    Collections
 
 *** Variables ***
-${sortdropdown}              //span[text()='Cele mai populare']
+${sortdropdown}              xpath://*[@class='dropdown-menu']//*[text()='Cele mai populare']
 ${sortByLatestLabel}         css:.dropdown-menu li:nth-child(2)
 ${sortByLatestLabelText}     Cele mai noi
 *** Keywords ***
 
 Select sorting dropdown 
-    Wait Until Page Contains Element    ${sortdropdown}  
-    Click Element    ${sortdropdown} 
+    [Arguments]  ${sortOption} 
+    Wait Until Page Contains Element    ${dropdown}  
+    Click Element    ${ddropdown} 
 
 Select sort by latest products 
     Wait Until Page Contains Element    ${sortByLatestLabel}   
