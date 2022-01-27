@@ -3,8 +3,6 @@ Library    SeleniumLibrary
 Library    Collections
 
 *** Variables ***
-${topElementInSorting}     //span[text()='Cele mai noi']
-${sortingByNewestText}     Cele mai noi
 ${addToCartButton}         css:.yeahIWantThisProduct
 ${cartButton}              //a[contains(.,'Vezi detalii cos')]
 ${cartIsNotEmpty}          //h4[contains(.,'Produsul a fost adaugat in cos')]
@@ -13,9 +11,6 @@ ${firstElementInCart}      css:#vendorsContainer > div > div.cart-widget.cart-li
 
 
 *** Keywords ***
-Verify sorting changes From Popular to Latest 
-    ${topElementInSortingText} =   Get Text  ${topElementInSorting} 
-    Should Be Equal    ${topElementInSortingText}    ${sortingByNewestText}
 
 Get first product in list and add it to the shopping cart  
     Click Element    ${addToCartButton}    

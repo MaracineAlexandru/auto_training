@@ -1,20 +1,13 @@
 *** Settings ***
 Library    SeleniumLibrary
 Library    Collections
+Library    String
 
 *** Variables ***
-${sortdropdown}              xpath://*[@class='dropdown-menu']//*[text()='Cele mai populare']
-${sortByLatestLabel}         css:.dropdown-menu li:nth-child(2)
-${sortByLatestLabelText}     Cele mai noi
+${dropdown}              xpath://*[text()='Ordoneaza dupa:']/parent::*/*[contains(@class,'btn-dropdown')]
+${sortOptionTemplate}    xpath://*[@class='dropdown-menu']//*[text()='sort_option']
 *** Keywords ***
-
-Select sorting dropdown 
-    [Arguments]  ${sortOption} 
+Select '${sort_option:Cele mai populare|Cele mai noi|Pret crescator|Pret descrescator|Nr. review-uri|Discount %}' sort option from dropdown  
     Wait Until Page Contains Element    ${dropdown}  
-    Click Element    ${ddropdown} 
-
-Select sort by latest products 
-    Wait Until Page Contains Element    ${sortByLatestLabel}   
-    ${latestText}=  Get Text    ${sortByLatestLabel}
-    Should Be Equal    ${latestText}    ${sortByLatestLabelText}
-    Click Element    ${sortByLatestLabel}  
+    Click Element    ${dropdown} 
+    ${placeHolder}=   Replace String    ${sortOptionTemplate}    sort_option    ${sort_option}

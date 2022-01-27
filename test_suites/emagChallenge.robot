@@ -24,10 +24,8 @@ Basic functionality test
     Select gaming from the products dropdown
     Select playstation button
     Select console button
-    Select sorting dropdown
-    Select sort by latest products
+    Select 'Cele mai noi' sort option from dropdown
     Execute JavaScript    window.scrollTo(0, ${scrollingPixels})
-    Wait Until Keyword Succeeds    2x    2s   Verify sorting changes From Popular to Latest  
      ${firstProduct}=  Get first product in list and add it to the shopping cart 
     Verify shopping cart is not empty
     Navigate to shopping cart details   
