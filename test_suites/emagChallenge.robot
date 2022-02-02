@@ -1,34 +1,30 @@
 *** Settings ***
-Resource     ../page_objects/consolePageProductsContainer.resource
-Resource     ../page_objects/emagHomePage.resource
-Resource     ../page_objects/emagProductsView.resource
-Resource     ../page_objects/emagGamingPage.resource
-Resource     ../page_objects/emagPlaystationPage.resource
-Resource     ../page_objects/consolePageListingPanelView.resource
+Resource     ../page_objects/homePage.resource
+Resource     ../page_objects/listingPanelView.resource
 Resource     ../page_objects/shoppingCartpreview.resource
 Resource     ../page_objects/shoppingCartDetailsView.resource
+Resource     ../page_objects/productTypes.resource
 Library     ../python_lib/custom_keywords.py
 Library    SeleniumLibrary
 Library    Process
 
 *** Variables ***
-${scrollingPixels}         250
 ${emagUrl}                 https://www.emag.ro/
 ${browser}                 chrome 
+
 
 *** Test Cases ***
 Basic functionality test 
     Open Site  ${emagUrl}  ${browser}
     Accept cookies
-    Select product tab
-    Select gaming from the products dropdown
-    Select playstation button
-    Select console button
-    Select 'Cele mai noi' sort option from dropdown
-    Execute JavaScript    window.scrollTo(0, ${scrollingPixels})
+    Navigate to 'Gaming, Carti & Birotica'
+    Navigate to 'Playstation'
+    Navigate to 'Console Playstation'
+    Select 'Cele mai noi' sort option from dropdown  
+    Adjust scrolling
      ${firstProduct}=  Get first product in list and add it to the shopping cart 
-    Verify shopping cart is not empty
-    Navigate to shopping cart details   
+    Navigate to shopping cart details 
+    Verify shopping cart is not empty  
     Verify the correct product is in the shopping cart   ${firstProduct}
     [Teardown]    Close Browser
 
