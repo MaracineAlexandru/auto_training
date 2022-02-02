@@ -4,9 +4,6 @@ Library    Collections
 Library    String
 
 *** Variables ***
-${gaming}            //a[contains(.,'Gaming, Carti & Birotica')]
-${console}           //a[contains(.,'Console Playstation')]  
-${playstation}       //a[contains(.,'Playstation')]
 ${productPageTemplate}     //a[contains(.,'productPage')]
 ${scrollingPixels}         250
 

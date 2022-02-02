@@ -3,7 +3,7 @@ Resource     ../page_objects/homePage.resource
 Resource     ../page_objects/listingPanelView.resource
 Resource     ../page_objects/shoppingCartpreview.resource
 Resource     ../page_objects/shoppingCartDetailsView.resource
-Resource     ../page_objects/productTypes.resource
+Resource     ../page_objects/productPage.resource
 Library     ../python_lib/custom_keywords.py
 Library    SeleniumLibrary
 Library    Process
