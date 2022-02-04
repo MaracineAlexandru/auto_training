@@ -10,9 +10,9 @@ ${scrollingPixels}         250
 *** Keywords ***
 
 Navigate to '${productPage:Gaming, Carti & Birotica|Console Playstation|Playstation}'
-    ${placeHolder}=   Replace String    ${productPageTemplate}    productPage    ${productPage}
-    Wait Until Element Is Enabled    ${placeHolder}
-    Click Element    ${placeHolder}
+    ${productPageLabel}=   Replace String    ${productPageTemplate}    productPage    ${productPage}
+    Wait Until Element Is Enabled    ${productPageLabel}
+    Click Element    ${productPageLabel}
 
 Adjust scrolling
     Execute JavaScript    window.scrollTo(0, ${scrollingPixels})    
