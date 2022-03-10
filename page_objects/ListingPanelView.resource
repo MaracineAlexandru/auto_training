@@ -14,6 +14,7 @@ Select '${sort_option:Cele mai populare|Cele mai noi|Pret crescator|Pret descres
     Wait Until Page Contains Element    ${dropdown}  
     Click Element    ${dropdown} 
     ${dropdownLabel}=   Replace String    ${sortOptionTemplate}    sort_option    ${sort_option}
+    Click Element    ${dropdownLabel}
 
 Get first product in list and add it to the shopping cart  
     Click Element    ${addToCartButton}    
